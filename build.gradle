@@ -6,11 +6,15 @@ task installNpm(type: Exec) {
   commandLine 'npm', 'install'
 }
 
-task build(dependsOn: 'installNpm') {
+task runBuild(dependsOn: 'installNpm') {
   doLast {
     exec {
         commandLine 'npx', 'rimraf', './dist', '&&', 'tsc'
     }
     println 'Build Done!'
   }
+}
+
+task runTest(type: Exec) {
+    commandLine 'npm', 'run', 'test'
 }
