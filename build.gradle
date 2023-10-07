@@ -1,0 +1,16 @@
+plugins {
+  id "com.github.node-gradle.node" version "7.0.0"
+}
+
+task installNpm(type: Exec) {
+  commandLine 'npm', 'install'
+}
+
+task build(dependsOn: 'installNpm') {
+  doLast {
+    exec {
+        commandLine 'npx', 'rimraf', './dist', '&&', 'tsc'
+    }
+    println 'Build Done!'
+  }
+}
