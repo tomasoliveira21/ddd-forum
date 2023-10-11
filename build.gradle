@@ -18,3 +18,11 @@ task runBuild(dependsOn: 'installNpm') {
 task runTest(type: Exec) {
     commandLine 'npm', 'run', 'test'
 }
+
+task runDocs(type: Exec) {
+  commandLine 'jsdoc', '-c', 'jsdoc.json'
+}
+
+task runPlantUML(type: Exec) {
+  commandLine 'sh', 'bin/generate-plantuml-diagrams.sh'
+}
