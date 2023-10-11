@@ -8,7 +8,9 @@
     },
     "opts": {
         "recurse": true,
-        "destination": "./docs/jsdoc"
+        "destination": "./docs/jsdoc",
+        "readme": "./README.md",
+        "template": "./node_modules/docdash"
     },
     "sourceType": "module",
     "tags": {
