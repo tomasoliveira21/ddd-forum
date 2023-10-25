@@ -2,6 +2,11 @@
 
 pipeline {
     agent any
+     environment {
+        DDD_FORUM_DB_DEV_DB_NAME = 'data_dev'
+        DDD_FORUM_DB_USER = 'tonysoprano'
+        DDD_FORUM_DB_PASS = '12345678'
+    }
     stages {
         stage('Verify installations') {
             steps {
