@@ -4,7 +4,7 @@
  * This code is based on the project {@link https://github.com/jmfiola/jest-api-test-typescript-example}.
  */
 import { Logger } from "tslog";
-import ConfigHandler from "./config/ConfigHandler";
+import ConfigHandler from "./config/configHandler";
 
 import Users from "./endpoints/Users";
 
@@ -31,23 +31,20 @@ describe("Users endpoint", (): void => {
   it("Post - Create User", async (): Promise<void> => {
     const response = await users.post();
 
-    if (response) {
-      expect(response.status).toBe(200);
-    }
+    expect(response.status).toBe(200);
   });
 
   it("Post Login", async (): Promise<void> => {
     const response = await users.postLogin();
 
-    if (response) {
-      expect(response.status).toBe(200);
+    expect(response.status).toBe(200);
 
-      expect(response.data.accessToken).toBeDefined();
-      expect(response.data.refreshToken).toBeDefined();
 
-      accessToken = response.data.accessToken;
-      refreshToken = response.data.refreshToken;
-    }
+    expect(response.data.accessToken).toBeDefined();
+    expect(response.data.refreshToken).toBeDefined();
+
+    accessToken = response.data.accessToken;
+    refreshToken = response.data.refreshToken;
   });
 
   it("Get Me", async (): Promise<void> => {
@@ -55,13 +52,12 @@ describe("Users endpoint", (): void => {
 
     const response = await users.getMe(accessToken);
 
-    if (response) {
-      expect(response.status).toBe(200);
+    expect(response.status).toBe(200);
 
-      expect(response.data.user).toBeDefined();
-      expect(response.data.user.username).toBeDefined();
-      expect(response.data.user.username).toContain("atb");
-    }
+
+    expect(response.data.user).toBeDefined();
+    expect(response.data.user.username).toBeDefined();
+    expect(response.data.user.username).toContain("atb");
   });
 });
 

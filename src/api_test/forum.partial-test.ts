@@ -4,7 +4,7 @@
  * This code is based on the project {@link https://github.com/jmfiola/jest-api-test-typescript-example}.
  */
 import { Logger } from "tslog";
-import ConfigHandler from "./config/ConfigHandler";
+import ConfigHandler from "./config/configHandler";
 
 import Posts from "./endpoints/Posts";
 
@@ -28,11 +28,9 @@ describe("Posts endpoint", (): void => {
   it("Get popular posts", async (): Promise<void> => {
     const response = await posts.getPopularPosts();
 
-    if (response) {
-      expect(response.status).toBe(200);
+    expect(response.status).toBe(200);
 
-      expect(response.data.posts).toBeDefined();
-    }
+    expect(response.data.posts).toBeDefined();
   });
 });
 
