@@ -14,6 +14,5 @@ done
  
 echo REDIS started
 
-npm run db:create:dev
-npm run migrate:dev
+npm run setup:dev
 npm run start:dev

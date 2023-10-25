@@ -13,12 +13,12 @@ services:
       - MYSQL_USER=${DDD_FORUM_DB_USER}
       - MYSQL_PASSWORD=${DDD_FORUM_DB_PASS}
 
-  adminer:
-    image: adminer
-    depends_on:
-      - mysql
-    ports:
-      - 8080:8080
+  # adminer:
+  #   image: adminer
+  #   depends_on:
+  #     - mysql
+  #   ports:
+  #     - 8080:8080
 
   redis:
     container_name: ddd_forum_redis
